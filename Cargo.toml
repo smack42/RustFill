@@ -1,5 +1,5 @@
 [package]
-name = "RustFill"
+name = "rust_fill"
 version = "0.1.0"
 authors = ["Michael Henke <smack42@googlemail.com>"]
 
