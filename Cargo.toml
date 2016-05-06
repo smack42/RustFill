@@ -1,0 +1,6 @@
+[package]
+name = "RustFill"
+version = "0.1.0"
+authors = ["Michael Henke <smack42@googlemail.com>"]
+
+[dependencies]
