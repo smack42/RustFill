@@ -19,8 +19,10 @@ use std::fs::File;
 use std::io::BufRead;
 use std::io::BufReader;
 
+const VERSION: Option<&'static str> = option_env!("CARGO_PKG_VERSION");
+
 fn main() {
-    println!("RustFill");
+    println!("RustFill v{}", VERSION.unwrap_or("_unknown"));
     match do_pc19() {
         Ok(_)  => { println!("done.") },
         Err(e) => { println!("error!"); println!("{}", e); std::process::exit(1); }
