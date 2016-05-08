@@ -19,6 +19,8 @@ use std::fs::File;
 use std::io::BufRead;
 use std::io::BufReader;
 
+mod model;
+
 const VERSION: Option<&'static str> = option_env!("CARGO_PKG_VERSION");
 
 fn main() {
@@ -45,7 +47,11 @@ fn do_pc19() -> std::io::Result<String> {
             // return the error immediately
             Err(_) => { return line; }
         };
-        println!("{:04} {}", num_lines, line);
+        let board = model::BoardBuilder::new()
+                            .cells(&line)
+                            .startpos(0)
+                            .build();
+        println!("{:04} {:?}", num_lines, board);
     }
     println!("number of lines processed: {}", num_lines);
     Ok(String::new())
